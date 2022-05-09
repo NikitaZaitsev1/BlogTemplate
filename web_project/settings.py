@@ -24,7 +24,7 @@ SECRET_KEY = "django-insecure-2ty$z==9k*sq*t77of+i^bv0pyj)7j#lvg991cun#ozk@at(2*
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1', '.pythonanywhere.com']
 
 # Application definition
 
@@ -36,6 +36,7 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "home",
+    "user",
 
 ]
 
@@ -63,6 +64,9 @@ TEMPLATES = [
                 "django.contrib.auth.context_processors.auth",
                 "django.contrib.messages.context_processors.messages",
             ],
+            'libraries': {
+                'blog_lib': 'web_project.templatetags.blog_lib',
+            }
         },
     },
 ]
@@ -118,3 +122,4 @@ STATICFILES_DIRS = (BASE_DIR / "web_project" / "static",)
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+AUTH_USER_MODEL = "user.User"
