@@ -25,7 +25,10 @@
 <body>
     <div class="back-to-top"></div>
 
+    {% block nav %}
     {% include "base/nav.html" %}
+    {% endblock nav %}
+
 
     {% block content %}
     {% endblock content %}
