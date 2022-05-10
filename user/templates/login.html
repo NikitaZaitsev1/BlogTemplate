@@ -1,15 +1,13 @@
 {% extends 'base.html' %}
 
-{% block nav %}
-{% include "base/nav_login.html" %}
-{% endblock nav %}
 
 {% block content %}
+
 <div class="page-section">
     <div class="container">
         <div class="text-center wow fadeInUp">
             <h2 class="title-section">Log in</h2>
-            <form action="{% url 'login_page' %}" method="post" autocomplete="off">
+            <form action="{% url 'login_page' %}" method="post" autocomplete="off" >
                 {% csrf_token %}
                 {% for input in login_form %}
                 <div class="form-group">
@@ -29,5 +27,4 @@
         </div>
     </div>
 </div>
-
 {% endblock %}

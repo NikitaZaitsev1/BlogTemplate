@@ -9,14 +9,14 @@
         </button>
         <div class="navbar-collapse collapse" id="navbarContent">
             <ul class="navbar-nav ml-auto">
-                <li class="nav-item active">
+                <li class="nav-item">
                     <a class="nav-link" href="{% url 'home_page' %}">Home</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'about_page' %}">About</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Blog</a>
+                    <a class="nav-link" href="{% url 'post_list_page' %}">Blog</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'contacts_page' %}">Contact</a>
@@ -29,6 +29,9 @@
                     <a class="nav-link" href="{% url 'signin_page' %}">Sing In</a>
                 </li>
                 {% else %}
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'post_new_page' %}">New post</a>
+                </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'user_page' %}">Account</a>
                 </li>

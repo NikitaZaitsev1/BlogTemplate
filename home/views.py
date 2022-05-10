@@ -4,14 +4,15 @@ from django.db import IntegrityError
 from django.shortcuts import redirect
 from django.urls import reverse
 from django.contrib import messages
+from django.views.generic import TemplateView
 
 
-def home_view(request):
-    return render(request, "home.html", {})
+class HomeView(TemplateView):
+    template_name = "home.html"
 
 
-def about_view(request):
-    return render(request, "about.html", {})
+class AboutView(TemplateView):
+    template_name = "about.html"
 
 
 def contacts_view(request):
@@ -22,8 +23,10 @@ def contacts_view(request):
             try:
                 form.save()
             except IntegrityError:
-                messages.add_message(request, messages.ERROR, "Ваш прошлый запрос еще не обработан")
-                messages.add_message(request, messages.ERROR, "Попробуйте позже")
+                messages.add_message(
+                    request, messages.ERROR, "Ваш прошлый запрос еще не обработан")
+                messages.add_message(
+                    request, messages.ERROR, "Попробуйте позже")
             return redirect(reverse("contacts_page"))
     context = {
         "feedback_form": form,
