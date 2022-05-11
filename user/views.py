@@ -1,4 +1,5 @@
 from re import template
+from django.views import View
 from django.views.generic import ListView, TemplateView
 from django.shortcuts import render
 from django.views.generic import FormView
@@ -7,7 +8,7 @@ from django.urls import reverse
 from django.shortcuts import redirect
 from django.contrib.auth import logout
 from user.models import User
-from django.views.generic.detail import DetailView
+
 
 
 class UserView(ListView):

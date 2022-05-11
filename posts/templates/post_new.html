@@ -8,7 +8,7 @@
             <h2 class="title-section">New post</h2>
             <form method="post" autocomplete="off" class="post-form">
                 {% csrf_token %}
-                {{post_form.as_p }}
+                {{ post_form.as_p }}
                 <input type="submit" value="Save" class="btn btn-primary">
             </form>
         </div>

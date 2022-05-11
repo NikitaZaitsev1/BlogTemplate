@@ -1,5 +1,5 @@
 from django.urls import path
-from user.views import log_in, log_out, SignInView
+from user.views import log_out, SignInView, log_in
 from django.shortcuts import redirect
 from django.urls import reverse
 
