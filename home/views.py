@@ -51,3 +51,5 @@ def coin_price_view(request):
                                          'xrp_price': xrp_price,
                                          'sol_price': sol_price,
                                          'doge_price': doge_price})
+
+   

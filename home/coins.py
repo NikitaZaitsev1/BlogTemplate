@@ -20,20 +20,22 @@ class Coins:
         coins_json = requests.get(url, params=params, headers=headers).json()
 
         coins = coins_json['data']
-        for x in coins:
-            if x['symbol'] == 'BTC':
-                price_btc = round(x['quote']['USD']['price'], 4)
+        # while True:
+        for coin in coins:
+            if coin['symbol'] == 'BTC':
+                price_btc = round(coin['quote']['USD']['price'], 2)
                 prices.append(price_btc)
-            elif x['symbol'] == 'ETH':
-                price_etf = round(x['quote']['USD']['price'], 4)
+            elif coin['symbol'] == 'ETH':
+                price_etf = round(coin['quote']['USD']['price'], 2)
                 prices.append(price_etf)
-            elif x['symbol'] == 'XRP':
-                price_xrp = round(x['quote']['USD']['price'], 4)
+            elif coin['symbol'] == 'XRP':
+                price_xrp = round(coin['quote']['USD']['price'], 4)
                 prices.append(price_xrp)
-            elif x['symbol'] == 'SOL':
-                price_sol = round(x['quote']['USD']['price'], 4)
+            elif coin['symbol'] == 'SOL':
+                price_sol = round(coin['quote']['USD']['price'], 2)
                 prices.append(price_sol)
-            elif x['symbol'] == 'DOGE':
-                price_doge = round(x['quote']['USD']['price'], 4)
+            elif coin['symbol'] == 'DOGE':
+                price_doge = round(coin['quote']['USD']['price'], 4)
                 prices.append(price_doge)
+
         return prices
