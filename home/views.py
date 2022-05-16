@@ -1,4 +1,6 @@
 from django.shortcuts import render
+
+from home.coins import Coins
 from home.forms import FeedBackForm
 from django.db import IntegrityError
 from django.shortcuts import redirect
@@ -35,3 +37,17 @@ def contacts_view(request):
         "emails": ["support@seogram.com", "hello@seogram.com"]
     }
     return render(request, "contacts.html", context)
+
+
+def coin_price_view(request):
+    coins = Coins().get_coins()
+    btc_price = coins[0]
+    eth_price = coins[1]
+    xrp_price = coins[2]
+    sol_price = coins[3]
+    doge_price = coins[4]
+    return render(request, 'coin.html', {'btc_price': btc_price,
+                                         'eth_price': eth_price,
+                                         'xrp_price': xrp_price,
+                                         'sol_price': sol_price,
+                                         'doge_price': doge_price})

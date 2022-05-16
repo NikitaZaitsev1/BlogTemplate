@@ -1,13 +1,7 @@
-import imp
-import re
-from django.db import IntegrityError
-from django.shortcuts import redirect, render
-from django.urls import reverse, reverse_lazy
+from django.shortcuts import redirect
 from django.utils import timezone
-from django.contrib import messages
-from django.views import View
 from posts.models import Post
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render
 from posts.forms import PostForm
 from django.views.generic import ListView, DetailView
 
@@ -40,7 +34,8 @@ def post_new_view(request):
             return redirect('post_detail_page', pk=post.pk)
     else:
         post_form = PostForm()
-    return render(request, 'post_new.html', {'post_form': post_form})
+        return render(request, 'post_new.html', {'post_form': post_form})
+
 
 
 # def post_edit_view(request, pk):

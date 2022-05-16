@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="page-section">
+        <div class="container">
+            <div class="text-center wow fadeInUp">
+                <h2 class="title-section">Today's Cryptocurrency Prices by Market Cap</h2>
+            </div>
+            <table class="table table-primary table-striped">
+                <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Coin</th>
+                    <th scope="col">Price</th>
+                    <th scope="col">Currency</th>
+                </tr>
+                </thead>
+                <tbody class="table-group-divider">
+                <tr>
+                    <th scope="row">1</th>
+                    <td>Bitcoin</td>
+                    <td>{{ btc_price }}</td>
+                    <td>USD</td>
+                </tr>
+                <tr>
+                    <th scope="row">2</th>
+                    <td>Ethereum</td>
+                    <td>{{ eth_price }}</td>
+                    <td>USD</td>
+                </tr>
+                <tr>
+                    <th scope="row">3</th>
+                    <td>Ripple</td>
+                    <td>{{ xrp_price }}</td>
+                    <td>USD</td>
+                </tr>
+                <tr>
+                    <th scope="row">4</th>
+                    <td>Solana</td>
+                    <td>{{ sol_price }}</td>
+                    <td>USD</td>
+                </tr>
+                <tr>
+                    <th scope="row">5</th>
+                    <td>Dogecoin</td>
+                    <td>{{ doge_price }}</td>
+                    <td>USD</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+{% endblock %}

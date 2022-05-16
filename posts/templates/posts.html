@@ -2,31 +2,33 @@
 {% load blog_lib %}
 {% block content %}
 
-<div class="page-section">
-    <div class="container">
-        <div class="text-center wow fadeInUp">
-            <h2 class="title-section">Posts</h2>
-        </div>
-        {% for post in posts %}
-        <div>{{ post.published_date }}</div>
-        <h3 class="title-section">{{ post.title }}</h3>
-        <p>{{ post.text|truncatewords:30 }}</p>
-        <div class="clear"></div>
-        <p class="link-read-post"><a href="{% url 'post_detail_page' pk=post.pk %}">Read more</a></p>
-        {% endfor %}
-        <div align="center">
-            {% if page_obj.has_previous %}
-            <a href="{% url 'post_list_page' %}?page=1" class="title-section">First</a>
-            <a href="{% url 'post_list_page' %}?page={{ page_obj.previous_page_number }}" class="title-section">Previos</a>
-            {% endif %}
-            {% for num_page in page_obj.paginator.num_pages|range:0 %}
-            <a href="{% url 'post_list_page' %}?page={{ num_page|add:1 }}" class="title-section">{{ num_page|add:1}}</a>
+    <div class="page-section">
+        <div class="container">
+            <div class="text-center wow fadeInUp">
+                <h2 class="title-section">Posts</h2>
+            </div>
+            {% for post in posts %}
+                <div>{{ post.published_date }}</div>
+                <h3 class="title-section">{{ post.title }}</h3>
+                <p>{{ post.text|truncatewords:30 }}</p>
+                <div class="clear"></div>
+                <p class="link-read-post"><a href="{% url 'post_detail_page' pk=post.pk %}">Read more</a></p>
             {% endfor %}
-            {% if page_obj.has_next %}
-            <a href="{% url 'post_list_page' %}?page={{ page_obj.next_page_number }}" class="title-section">Next</a>
-            <a href="{% url 'post_list_page' %}?page={{ page_obj.paginator.num_pages }}" class="title-section">Last</a>
-            {% endif %}
+            <div align="center">
+                {% if page_obj.has_previous %}
+                    <a href="{% url 'post_list_page' %}?page=1" class="title-section">First</a>
+                    <a href="{% url 'post_list_page' %}?page={{ page_obj.previous_page_number }}" class="title-section">Previos</a>
+                {% endif %}
+                {% for num_page in page_obj.paginator.num_pages|range:0 %}
+                    <a href="{% url 'post_list_page' %}?page={{ num_page|add:1 }}"
+                       class="title-section">{{ num_page|add:1 }}</a>
+                {% endfor %}
+                {% if page_obj.has_next %}
+                    <a href="{% url 'post_list_page' %}?page={{ page_obj.next_page_number }}"
+                       class="title-section">Next</a>
+                    <a href="{% url 'post_list_page' %}?page={{ page_obj.paginator.num_pages }}" class="title-section">Last</a>
+                {% endif %}
+            </div>
         </div>
     </div>
-</div>
 {% endblock %}
