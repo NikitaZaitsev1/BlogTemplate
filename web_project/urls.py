@@ -23,6 +23,7 @@ urlpatterns = [
     path("auth/", include("user.auth_urls")),
     path("account/", include("user.urls")),
     path("", include("posts.urls")),
+    path("", include("posts.api_urls")),
     path("", include("home.urls")),
 ]
 
